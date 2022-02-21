@@ -1,0 +1,29 @@
+﻿@using System.Linq
+@model IEnumerable<GamesApp.ViewModels.GenreViewModel>
+
+@{
+    ViewData["Title"] = "GenreIndex";
+}
+
+<h1>GenreIndex</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            <label asp-for="@Model.First().GenreName"></label>
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.GenreName
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

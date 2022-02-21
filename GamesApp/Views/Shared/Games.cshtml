@@ -1,0 +1,50 @@
+﻿@using System.Linq
+@model IEnumerable<GamesApp.ViewModels.GamesViewModel>
+
+@{
+    ViewData["Title"] = "GameIndex";
+}
+
+<h1>Список Игр</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            <label asp-for="@Model.First().Title"></label>
+        </th>
+        <th>
+            <label asp-for="@Model.First().DevStudio"></label>
+        </th>
+        <th>
+             <label asp-for="@Model.First().Genres"></label>
+        </th>
+        
+        
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.DevStudio
+            </td>
+            <td>
+                @foreach (var g in item.Genres)
+                {
+                    @if (g != null)
+                    {
+                        @g.GenreName
+                        <br/>
+                    }
+                }
+            <td>
+        </tr>
+    }
+    </tbody>
+</table>
